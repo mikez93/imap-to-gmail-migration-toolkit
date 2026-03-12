@@ -29,7 +29,7 @@ This toolkit exists because all of those things happened during a real productio
 
 ```bash
 # 1. Clone the toolkit
-git clone https://github.com/YOUR_USERNAME/imap-to-gmail-migration-toolkit.git
+git clone https://github.com/mikez93/imap-to-gmail-migration-toolkit.git
 cd imap-to-gmail-migration-toolkit/migrate
 
 # 2. Pull Docker image (required on macOS)
