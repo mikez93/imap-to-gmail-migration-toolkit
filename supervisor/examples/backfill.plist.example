@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.backfill.user</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <!-- Update this path to your installation directory -->
+        <string>/path/to/migration-toolkit/migrate/scripts/backfill_sync.sh</string>
+        <!-- Update this to the account being backfilled -->
+        <string>user@yourdomain.com</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <!-- Source IMAP server -->
+        <key>SRC_HOST</key>
+        <string>mail.yourdomain.com</string>
+        <!-- Use gentle throttle for background backfill -->
+        <key>THROTTLE</key>
+        <string>gentle</string>
+    </dict>
+
+    <!-- Run daily at 2:00 AM -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>2</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/tmp/backfill-user.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/backfill-user.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

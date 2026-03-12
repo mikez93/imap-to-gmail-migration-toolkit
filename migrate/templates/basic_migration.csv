@@ -1,0 +1,19 @@
+src_user,src_pass,dst_user,dst_pass
+# Example: john@oldcompany.com,MyPassword123,john@newcompany.com,abcd1234efgh5678
+# Replace with your actual credentials:
+# 1. src_user: Email address on source server (e.g., john@oldcompany.com)
+# 2. src_pass: Password for source email account
+# 3. dst_user: Email address on destination server (e.g., john@newcompany.com)
+# 4. dst_pass: Google app password (remove spaces, e.g., abcd1234efgh5678)
+#
+# Instructions:
+# 1. Copy this file to migration_map.csv
+# 2. Replace the example data with your actual credentials
+# 3. For Google app passwords: Remove all spaces from the password
+# 4. Set secure permissions: chmod 600 migration_map.csv
+# 5. Test with single account first: ./scripts/test_single.sh
+#
+# Security notes:
+# - Never commit this file to version control
+# - Use strong, unique passwords
+# - Consider using password files instead of CSV for better security

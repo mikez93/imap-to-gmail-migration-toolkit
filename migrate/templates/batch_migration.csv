@@ -1,0 +1,41 @@
+src_user,src_pass,dst_user,dst_pass,priority
+# Small team batch migration template
+# Priority levels: critical, high, normal, low
+
+# Executive team (migrate first)
+ceo@oldcompany.com,CEOPassword123,ceo@newcompany.com,apppass1234567890,critical
+cfo@oldcompany.com,CFOPassword456,cfo@newcompany.com,apppass2345678901,critical
+cto@oldcompany.com,CTOPassword789,cto@newcompany.com,apppass3456789012,high
+
+# Engineering team
+dev1@oldcompany.com,Dev1Password012,dev1@newcompany.com,apppass4567890123,normal
+dev2@oldcompany.com,Dev2Password345,dev2@newcompany.com,apppass5678901234,normal
+dev3@oldcompany.com,Dev3Password678,dev3@newcompany.com,apppass6789012345,normal
+
+# Sales team
+sales1@oldcompany.com,Sales1Password901,sales1@newcompany.com,apppass7890123456,high
+sales2@oldcompany.com,Sales2Password234,sales2@newcompany.com,apppass8901234567,high
+
+# Support team
+support1@oldcompany.com,Support1Password567,support1@newcompany.com,apppass9012345678,normal
+support2@oldcompany.com,Support2Password890,support2@newcompany.com,apppass0123456789,normal
+
+# Instructions:
+# 1. Copy this file: cp templates/batch_migration.csv migration_map.csv
+# 2. Replace example data with actual credentials
+# 3. Remove spaces from Google app passwords
+# 4. Set secure permissions: chmod 600 migration_map.csv
+# 5. Run priority users first: ./scripts/run_batch.sh migration_map.csv --priority "ceo@newcompany.com,cfo@newcompany.com"
+# 6. Then run remaining: ./scripts/run_batch.sh migration_map.csv
+#
+# Migration order recommendation:
+# 1. Critical users (executives)
+# 2. High priority (sales, key personnel)
+# 3. Normal users (most staff)
+# 4. Low priority (if any)
+#
+# Security notes:
+# - Never commit this file to version control
+# - Use strong, unique passwords
+# - Consider password files for better security
+# - Verify all app passwords work before starting

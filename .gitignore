@@ -1,0 +1,35 @@
+# Python venv
+.venv/
+__pycache__/
+*.pyc
+
+# Logs and runtime state
+migrate/logs/
+LOG_imapsync/
+LOG_imapsync/logs/
+/var/tmp/migration_watchdog/
+*.db
+
+# macOS noise
+.DS_Store
+
+# Local settings
+.env
+.claude/
+
+migrate/scripts/migrate/
+migrate/LOG_imapsync/
+.pai-context.md
+
+# Test results (temporary)
+migrate/test/results_*/
+migrate/test/scenarios/results_*/
+
+# Credential files (NEVER commit)
+credentials/
+google-info.txt
+*_credentials.txt
+*.pass1
+*.pass2
+migration_map*.csv
+imap-migration*.csv

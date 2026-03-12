@@ -1,0 +1,81 @@
+src_user,src_pass,dst_user,dst_pass,priority,department,batch
+# Enterprise migration template for large organizations
+# Priority levels: critical, high, normal, low
+# Batch: Migration phase (1=critical, 2=high, 3=normal, 4=low)
+
+# CRITICAL - Executive Team (Batch 1 - Migrate First)
+ceo@oldcompany.com,CEOPassword123,ceo@newcompany.com,apppass1234567890,critical,executive,1
+cfo@oldcompany.com,CFOPassword456,cfo@newcompany.com,apppass2345678901,critical,executive,1
+coo@oldcompany.com,COOPassword789,coo@newcompany.com,apppass3456789012,critical,executive,1
+cto@oldcompany.com,CTOPassword012,cto@newcompany.com,apppass4567890123,critical,engineering,1
+
+# HIGH PRIORITY - Sales & Key Personnel (Batch 2)
+vp_sales@oldcompany.com,VPSalesPassword345,vp_sales@newcompany.com,apppass5678901234,high,sales,2
+sales_mgr1@oldcompany.com,SalesMgr1Password678,sales_mgr1@newcompany.com,apppass6789012345,high,sales,2
+sales_mgr2@oldcompany.com,SalesMgr2Password901,sales_mgr2@newcompany.com,apppass7890123456,high,sales,2
+sales1@oldcompany.com,Sales1Password234,sales1@newcompany.com,apppass8901234567,high,sales,2
+sales2@oldcompany.com,Sales2Password567,sales2@newcompany.com,apppass9012345678,high,sales,2
+sales3@oldcompany.com,Sales3Password890,sales3@newcompany.com,apppass0123456789,high,sales,2
+
+# HIGH PRIORITY - Engineering Leads (Batch 2)
+eng_mgr1@oldcompany.com,EngMgr1Password135,eng_mgr1@newcompany.com,apppass1357924680,high,engineering,2
+eng_mgr2@oldcompany.com,EngMgr2Password246,eng_mgr2@newcompany.com,apppass2468135790,high,engineering,2
+devops1@oldcompany.com,DevOps1Password357,devops1@newcompany.com,apppass3579246801,high,engineering,2
+
+# NORMAL PRIORITY - Engineering Team (Batch 3)
+dev1@oldcompany.com,Dev1Password468,dev1@newcompany.com,apppass4680135792,normal,engineering,3
+dev2@oldcompany.com,Dev2Password579,dev2@newcompany.com,apppass5791246803,normal,engineering,3
+dev3@oldcompany.com,Dev3Password680,dev3@newcompany.com,apppass6802357914,normal,engineering,3
+dev4@oldcompany.com,Dev4Password791,dev4@newcompany.com,apppass7913468025,normal,engineering,3
+dev5@oldcompany.com,Dev5Password802,dev5@newcompany.com,apppass8024579136,normal,engineering,3
+qa1@oldcompany.com,QA1Password913,qa1@newcompany.com,apppass9135680247,normal,engineering,3
+qa2@oldcompany.com,QA2Password024,qa2@newcompany.com,apppass0246791358,normal,engineering,3
+
+# NORMAL PRIORITY - Marketing (Batch 3)
+marketing1@oldcompany.com,Marketing1Password135,marketing1@newcompany.com,apppass1357902468,normal,marketing,3
+marketing2@oldcompany.com,Marketing2Password246,marketing2@newcompany.com,apppass2468013579,normal,marketing,3
+marketing3@oldcompany.com,Marketing3Password357,marketing3@newcompany.com,apppass3579124680,normal,marketing,3
+
+# NORMAL PRIORITY - Support Team (Batch 4)
+support_mgr@oldcompany.com,SupportMgrPassword468,support_mgr@newcompany.com,apppass4680235791,normal,support,4
+support1@oldcompany.com,Support1Password579,support1@newcompany.com,apppass5791346802,normal,support,4
+support2@oldcompany.com,Support2Password680,support2@newcompany.com,apppass6802457913,normal,support,4
+support3@oldcompany.com,Support3Password791,support3@newcompany.com,apppass7913568024,normal,support,4
+
+# LOW PRIORITY - Administrative (Batch 4)
+admin1@oldcompany.com,Admin1Password802,admin1@newcompany.com,apppass8024679135,low,administrative,4
+admin2@oldcompany.com,Admin2Password913,admin2@newcompany.com,apppass9135780246,low,administrative,4
+hr1@oldcompany.com,HR1Password024,hr1@newcompany.com,apppass0246891357,low,hr,4
+hr2@oldcompany.com,HR2Password135,hr2@newcompany.com,apppass1357902468,low,hr,4
+
+# Instructions:
+# 1. Copy this file: cp templates/enterprise_migration.csv migration_map.csv
+# 2. Replace all example data with actual credentials
+# 3. Remove spaces from all Google app passwords
+# 4. Set secure permissions: chmod 600 migration_map.csv
+# 5. Backup your CSV: cp migration_map.csv migration_map.csv.backup
+#
+# Migration execution order:
+# 1. Batch 1 (Critical): ./scripts/run_batch.sh migration_map.csv --batch 1
+# 2. Batch 2 (High): ./scripts/run_batch.sh migration_map.csv --batch 2
+# 3. Batch 3 (Normal): ./scripts/run_batch.sh migration_map.csv --batch 3
+# 4. Batch 4 (Low): ./scripts/run_batch.sh migration_map.csv --batch 4
+#
+# Alternative execution by priority:
+# ./scripts/run_batch.sh migration_map.csv --priority "critical"
+# ./scripts/run_batch.sh migration_map.csv --priority "high"
+# ./scripts/run_batch.sh migration_map.csv --priority "normal"
+# ./scripts/run_batch.sh migration_map.csv --priority "low"
+#
+# Pre-migration steps:
+# 1. Test with small batch: ./scripts/run_batch.sh test_migration.csv --dry-run
+# 2. Verify all app passwords work: ./scripts/test_single.sh
+# 3. Run pre-migration checklist: ./templates/pre_migration_checklist.sh
+# 4. Set up monitoring: ./launch_triple_terminal.sh
+#
+# Security notes:
+# - Never commit this file to version control
+# - Use strong, unique passwords for each account
+# - Consider using password files for better security
+# - Verify all app passwords work before starting full migration
+# - Have rollback plan ready

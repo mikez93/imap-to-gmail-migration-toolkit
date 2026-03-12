@@ -1,0 +1,54 @@
+src_user,src_pass,dst_user,dst_pass,priority
+# Test migration template for validation and testing
+# Use these fake credentials to test the migration process
+# Replace with actual test accounts when available
+
+# Test accounts (replace with real test credentials)
+test1@oldcompany.com,TestPassword123,test1@newcompany.com,apppass1234567890,normal
+test2@oldcompany.com,TestPassword456,test2@newcompany.com,apppass2345678901,normal
+test3@oldcompany.com,TestPassword789,test3@newcompany.com,apppass3456789012,normal
+
+# Instructions for testing:
+# 1. Copy this file: cp templates/test_migration.csv test_migration_map.csv
+# 2. Replace with actual test account credentials
+# 3. Test single account first: ./scripts/test_single.sh
+# 4. Test batch processing: ./scripts/run_batch.sh test_migration_map.csv --dry-run
+# 5. Test actual migration: ./scripts/run_batch.sh test_migration_map.csv -c 1
+# 6. Verify results in Gmail
+#
+# Testing checklist:
+# - [ ] Single account migration works
+# - [ ] Batch processing completes without errors
+# - [ ] Monitoring tools show progress correctly
+# - [ ] Emails appear in correct folders in Gmail
+# - [ ] No duplicate messages created
+# - [ ] Folder structure preserved
+# - [ ] Message dates and metadata correct
+# - [ ] Large messages transfer correctly
+# - [ ] Special characters in folder names handled
+# - [ ] Migration resumes correctly after interruption
+#
+# Test scenarios to verify:
+# 1. Basic email transfer
+# 2. Large mailbox (1GB+)
+# 3. Many folders/subfolders
+# 4. Special characters in emails
+# 5. Emails with attachments
+# 6. Calendar invites and meeting requests
+# 7. Interrupted migration recovery
+# 8. Rate limiting handling
+# 9. Memory pressure scenarios
+# 10. Network connectivity issues
+#
+# After testing:
+# - Verify all test emails arrived in Gmail
+# - Check folder structure matches source
+# - Confirm no data loss or corruption
+# - Test email sending/receiving from Gmail
+# - Clean up test accounts if needed
+#
+# Security notes:
+# - Use dedicated test accounts only
+# - Never use production credentials for testing
+# - Clean up test data after validation
+# - Verify test accounts have proper permissions
